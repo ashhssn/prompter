@@ -6,7 +6,7 @@ class OpenAIClient:
         self.client = ChatOpenAI(
             model_name="o4-mini",
             temperature=1.0,
-            max_completion_tokens=1024,
+            max_completion_tokens=2048,
             openai_api_key=api_key
         )
         self.transcript_store = transcript_store
