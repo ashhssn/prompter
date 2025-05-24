@@ -10,6 +10,10 @@ import pandas as pd
 import os
 from modules.prompts import EVIDENCE_PROMPT
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 api_key = st.secrets["openai_api_key"]
 
 st.set_page_config(
