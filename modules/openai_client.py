@@ -1,17 +1,13 @@
-
-
 from langchain_openai import ChatOpenAI
 from langchain.schema import ChatMessage
-from dotenv import load_dotenv
-
-load_dotenv()
 
 class OpenAIClient:
-    def __init__(self, transcript_store, prompt):
+    def __init__(self, api_key, transcript_store, prompt):
         self.client = ChatOpenAI(
             model_name="o4-mini",
             temperature=1.0,
-            max_completion_tokens=1024
+            max_completion_tokens=1024,
+            api_key=api_key,
         )
         self.transcript_store = transcript_store
         self.prompt = prompt

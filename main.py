@@ -5,13 +5,12 @@ from modules.openai_client import OpenAIClient
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.schema import Document as LcDocument
-from dotenv import load_dotenv
 import time
 import pandas as pd
 import os
 from modules.prompts import EVIDENCE_PROMPT
 
-load_dotenv()
+api_key = st.secrets["openai_api_key"]
 
 st.set_page_config(
     page_title="LLM‐Driven Document Evidence Generator",
@@ -78,7 +77,7 @@ if st.button("Process Document"):
         else:
             transcript_store = Chroma(embedding_function=embeddings, persist_directory="transcript_store")
 
-        llm_client = OpenAIClient(transcript_store, PROMPT)
+        llm_client = OpenAIClient(api_key, transcript_store, PROMPT)
 
         st.write("Processing prompt and reading/writing document...")
 
