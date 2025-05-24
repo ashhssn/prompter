@@ -4,3 +4,4 @@ streamlit
 langchain-openai
 pandas
 whisperx
+langchain-community
