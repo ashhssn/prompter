@@ -7,7 +7,7 @@ class OpenAIClient:
             model_name="o4-mini",
             temperature=1.0,
             max_completion_tokens=1024,
-            api_key=api_key,
+            openai_api_key=api_key
         )
         self.transcript_store = transcript_store
         self.prompt = prompt

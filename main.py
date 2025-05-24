@@ -62,7 +62,7 @@ if st.button("Process Document"):
     elif not uploaded_audio or not uploaded_doc:
         st.error("Upload both audio and DOCX files.")
     else:
-        embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings(openai_api_key=api_key)
         if not os.path.isdir('transcript_store'):
             # transcribe audio
             transcriber = Transcriber()
