@@ -9,12 +9,14 @@ import time
 import pandas as pd
 import os
 from modules.prompts import EVIDENCE_PROMPT
+from modules.helpers import group_as_speaker_pairs
 
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 api_key = st.secrets["openai_api_key"]
+hf_api_key = api_key = st.secrets["hf_api_key"]
 
 st.set_page_config(
     page_title="LLM‐Driven Document Evidence Generator",
@@ -35,7 +37,7 @@ PROMPT = st.text_area(
     height=450
 )
 
-uploaded_audio = "assets/test.wav"
+uploaded_audio = "assets/muthu.wav"
 uploaded_doc = "assets/checklist.docx"
 
 
@@ -69,14 +71,9 @@ if st.button("Process Document"):
         embeddings = OpenAIEmbeddings(openai_api_key=api_key)
         if not os.path.isdir('transcript_store'):
             # transcribe audio
-            transcriber = Transcriber()
+            transcriber = Transcriber(hf_api_key)
             result = transcriber.transcribe(audio_file=uploaded_audio)
-            docs = [
-                LcDocument(
-                    page_content=seg["text"].strip(),
-                    metadata={"start": float(seg["start"]), "end": float(seg["end"])}
-                ) for seg in result["segments"]
-            ]
+            docs = group_as_speaker_pairs(result)
             transcript_store = Chroma.from_documents(docs, embedding=embeddings, persist_directory="transcript_store")
         else:
             transcript_store = Chroma(embedding_function=embeddings, persist_directory="transcript_store")
@@ -93,3 +90,7 @@ if st.button("Process Document"):
         df = pd.DataFrame(table_data)
         # st.dataframe(df, use_container_width=True)
         st.table(df)
+        st.subheader("Transcription:\n")
+        with open("assets/transcription.txt", "r") as f:
+            for line in f.readlines():
+                st.write(line)
