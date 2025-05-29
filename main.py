@@ -76,6 +76,6 @@ if st.button("Process Document"):
         # st.dataframe(df, use_container_width=True)
         st.table(df)
         st.subheader("Transcription:\n")
-        with open("assets/transcription.txt", "r") as f:
+        with open("assets/transcript.txt", "r") as f:
             for line in f.readlines():
                 st.write(line)
