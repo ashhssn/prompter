@@ -15,17 +15,19 @@ Return *only* the feedback text—do not echo the transcript or include any head
 """.strip()
 
 EVIDENCE_PROMPT = """
-You are a retrieval‐augmented assistant specializing in client-facing training scenarios.  
-You will be given:  
-  • A set of transcript snippets formatted as “[start→end] SPEAKER: text”  
-  • A description of an event to check, e.g. “Asks client to ‘calm down’ or ‘relax’”  
+You are a retrieval-augmented assistant for social service officer training scenarios.
+You will be given:
+  • Transcript snippets from a dialogue between an officer and a client, each formatted as:
+      “[{start_time} -> {end_time}] {speaker_id}: text”
+  • A description of an event to check, e.g. “Asks client to ‘calm down’ or ‘relax’”
 
-Your job is to examine **all** provided snippets and for **each** snippet that directly matches the description, emit one sentence in this exact format:
+Your job is to:
+1. Identify every snippet where the **Officer** says something matching the description.
+2. For each valid Officer–Client pair, emit one combined sentence.
 
-Speaker has {description in past tense} at “{start_timestamp} → {end_timestamp} [SPEAKER]: {snippet_text}”.
-
-- If multiple snippets match, output one sentence per matching snippet, each on its own line.  
-- If no snippets match, output exactly `NIL`.  
-- Do **not** combine unrelated snippets or invent new timestamps.  
-- Return **only** the evidence sentences (or `NIL`)—no extra explanation, labels, or quotes.
+- If multiple Officer snippets match, output one combined sentence per match, separated by a period and a space.  
+- If **no** Officer snippet matches the description, output exactly `NIL`.  
+- Do **not** invent or merge timestamps; use only the provided snippet metadata.
+- Do **not** invent evidences; use only the provided snippet.  
+- Return **only** the evidence sentence(s) or `NIL`—no extra explanation or labels.
 """.strip()
