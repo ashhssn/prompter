@@ -9,7 +9,8 @@ import time
 import pandas as pd
 import os
 from modules.prompts import EVIDENCE_PROMPT
-from modules.helpers import group_as_speaker_pairs
+from modules.helpers import group_as_speaker_pairs, extract_table
+from dotenv import load_dotenv
 
 __import__('pysqlite3')
 import sys
@@ -41,27 +42,6 @@ uploaded_audio = "assets/muthu.wav"
 uploaded_doc = "assets/checklist.docx"
 
 
-def extract_table(doc_path, llm):
-    doc = Document(doc_path)
-    table = doc.tables[0]
-    rows = []
-    for row in table.rows[1:]:
-        desc = row.cells[0].text
-        res  = llm.generate_evidence(desc)
-        if 'NIL' not in res and len(res) > 1:
-            mark = "X"
-            evidence = res
-        else:
-            mark = ""
-            evidence = ""
-        rows.append({
-            "Description": desc,
-            "Check": mark,
-            "Evidence": evidence
-        })
-    return rows
-
-
 if st.button("Process Document"):
     if not PROMPT:
         st.error("Please enter the system prompt template.")
@@ -73,7 +53,12 @@ if st.button("Process Document"):
             # transcribe audio
             transcriber = Transcriber(hf_api_key)
             result = transcriber.transcribe(audio_file=uploaded_audio)
-            docs = group_as_speaker_pairs(result)
+            simple = [
+                {"start": float(s["start"]), "end": float(s["end"]),
+                "speaker_id": s["speaker"].strip(), "text": s["text"].strip()}
+                for s in result['segments']
+            ]
+            docs = group_as_speaker_pairs(simple)
             transcript_store = Chroma.from_documents(docs, embedding=embeddings, persist_directory="transcript_store")
         else:
             transcript_store = Chroma(embedding_function=embeddings, persist_directory="transcript_store")

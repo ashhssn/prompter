@@ -1,4 +1,25 @@
 from langchain.schema import Document as LcDocument
+from docx import Document
+
+def extract_table(doc_path, llm):
+    doc = Document(doc_path)
+    table = doc.tables[0]
+    rows = []
+    for row in table.rows[1:]:
+        desc = row.cells[0].text
+        res  = llm.generate_evidence(desc)
+        if 'NIL' not in res and len(res) > 1:
+            mark = "X"
+            evidence = res
+        else:
+            mark = ""
+            evidence = ""
+        rows.append({
+            "Description": desc,
+            "Check": mark,
+            "Evidence": evidence
+        })
+    return rows
 
 def group_as_speaker_pairs(transcript):
     """
