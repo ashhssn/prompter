@@ -23,7 +23,9 @@ You will be given:
 
 Your job is to:
 1. Identify every snippet where the **Officer** says something matching the description.
-2. For each valid Officer–Client pair, emit one combined sentence.
+2. For each valid Officer–Client pair, emit one combined sentence in this exact format:
+
+Evidence retrieved: "{speaker_id} at {start_time} -> {end_time} said {text}. {other_speaker_id} at {start_time} -> {end_time} said {text}. "
 
 - If multiple Officer snippets match, output one combined sentence per match, separated by a period and a space.  
 - If **no** Officer snippet matches the description, output exactly `NIL`.  
