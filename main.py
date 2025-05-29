@@ -16,7 +16,7 @@ import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 api_key = st.secrets["openai_api_key"]
-hf_api_key = api_key = st.secrets["hf_api_key"]
+hf_api_key = st.secrets["hf_api_key"]
 
 st.set_page_config(
     page_title="LLM‐Driven Document Evidence Generator",
