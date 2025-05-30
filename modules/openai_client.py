@@ -30,7 +30,7 @@ class OpenAIClient:
         context_block = "\n".join(snippets)
 
         messages = [
-            ChatMessage(role="developer", content=EVIDENCE_PROMPT),
+            ChatMessage(role="developer", content=self.prompt),
             ChatMessage(
                 role="user",
                 content=(
