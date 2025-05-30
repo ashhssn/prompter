@@ -27,9 +27,13 @@ def group_as_speaker_pairs(transcript):
     """
     grouped_docs = []
     
-    def flatten_turns(turns):
-        text = "\n".join([f"{t['speaker_id']}: {t['text']}" for t in turns])
-        return text, turns[0]['start'], turns[-1]['end']
+    def flatten_turns(first, second):
+        # get output as: [start_time -> end_time] SPEAKER_ID: text
+        first_text = f"\n[{first[0]['start']} -> {first[-1]['end']}] {first[0]['speaker_id']}: " + " ".join([f['text'] for f in first])
+        second_text = f"[{second[0]['start']} -> {second[-1]['end']}] {second[0]['speaker_id']}: " + " ".join([s['text'] for s in second])
+        # combine to process a speaker-pair document
+        text = first_text + "\n" + second_text
+        return text
 
     i = 0
     while i < len(transcript):
@@ -48,15 +52,10 @@ def group_as_speaker_pairs(transcript):
                 second_turn.append(transcript[i])
                 i += 1
 
-        all_turns = first_turn + second_turn
-        if all_turns:
-            content, start, end = flatten_turns(all_turns)
+        if first_turn and second_turn:
+            content = flatten_turns(first_turn, second_turn)
             doc = LcDocument(
-                page_content=content,
-                metadata={
-                    'start': start,
-                    'end': end,
-                }
+                page_content=content
             )
             grouped_docs.append(doc)
 

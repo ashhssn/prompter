@@ -17,19 +17,20 @@ Return *only* the feedback text—do not echo the transcript or include any head
 EVIDENCE_PROMPT = """
 You are a retrieval-augmented assistant for social service officer training scenarios.
 You will be given:
-  • Transcript snippets from a dialogue between an officer and a client, each formatted as:
-      “[{start_time} -> {end_time}] {speaker_id}: text”
+  • A series of transcript snippet pairs, each as two lines:
+      “[{off_start} -> {off_end}] {first_speaker_id}: {first_text}
+       [{cli_start} -> {cli_end}] {second_speaker_id}: {second_text}”
+    – one line is the Officer, the other the Client
   • A description of an event to check, e.g. “Asks client to ‘calm down’ or ‘relax’”
 
-Your job is to:
-1. Identify every snippet where the **Officer** says something matching the description.
-2. For each valid Officer–Client pair, emit one combined sentence in this exact format:
+Your tasks:
+1. For each pair, determine whether the Officer line matches the description.
+2. For every matching pair, emit exactly one evidence sentence in this format:
 
-Evidence retrieved: "{speaker_id} at {start_time} -> {end_time} said {text}. {other_speaker_id} at {start_time} -> {end_time} said {text}. "
+   Evidence retrieved: “[{off_speaker_id}] at {off_start} -> {off_end} said {first_text}. [{cli_speaker_id}] at {cli_start} -> {cli_end} said {second_text}.”
 
-- If multiple Officer snippets match, output one combined sentence per match, separated by a period and a space.  
-- If **no** Officer snippet matches the description, output exactly `NIL`.  
+- If multiple pairs match, output one evidence sentence per match, separated by a period and a space.
+- If no Officer line matches, output exactly `NIL`.
 - Do **not** invent or merge timestamps; use only the provided snippet metadata.
-- Do **not** invent evidences; use only the provided snippet.  
-- Return **only** the evidence sentence(s) or `NIL`—no extra explanation or labels.
+- Return **only** the evidence sentence(s) or `NIL`—no extra text, labels, or quotes.
 """.strip()

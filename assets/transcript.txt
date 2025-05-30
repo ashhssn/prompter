@@ -1,92 +1,13 @@
-SPEAKER_00 1.178 -> 2.68: Hi Mr Muthu, how are you today? 
 
-SPEAKER_01 7.207 -> 9.77: I'm just trying to get through the day, you know. 
-
-SPEAKER_01 10.832 -> 16.84: With my mother needing constant care and my kids depending on me, it feels like I'm carrying the weight of the world. 
-
-SPEAKER_01 17.762 -> 21.407: Bills are piling up and I just don't know how to manage it all. 
-
-SPEAKER_01 22.408 -> 23.81: It's really overwhelming. 
-
-SPEAKER_01 24.812 -> 25.633: How about you? 
-
-SPEAKER_00 26.542 -> 35.193: I understand that you are facing this situation with your mother and your children and rest assured we are here to help. 
-
-SPEAKER_01 38.417 -> 38.657: Help? 
-
-SPEAKER_01 39.659 -> 40.72: I've heard that before. 
-
-SPEAKER_01 41.681 -> 46.087: You sit in your air-conditioned office but you don't understand what it's like for me. 
-
-SPEAKER_01 47.168 -> 51.734: My mother is bedridden and I'm struggling to keep food on the table for my kids. 
-
-SPEAKER_01 52.815 -> 56.38: I've reached out to so many people and nothing changes. 
-
-SPEAKER_01 57.068 -> 59.311: I need real help, not just words. 
-
-SPEAKER_00 59.812 -> 61.615: I understand, Mr Muthu. 
-
-SPEAKER_00 62.796 -> 67.844: As for that, how about we discuss on the kind of packages that we can offer for you today? 
-
-SPEAKER_01 70.988 -> 71.529: Packages? 
-
-SPEAKER_01 72.631 -> 76.937: What good are packages when I can barely afford to keep the lights on? 
-
-SPEAKER_01 76.957 -> 81.023: I need financial assistance, not some vague offer. 
-
-SPEAKER_01 81.043 -> 84.628: My mother needs her medication and my kids need food. 
-
-SPEAKER_01 85.503 -> 89.229: I can't keep waiting for something that might not even help. 
-
-SPEAKER_01 89.249 -> 90.03: You don't get it. 
-
-SPEAKER_00 90.991 -> 97.942: Well, in terms of providing you with cash or money and finance, that is not our responsibility. 
-
-SPEAKER_00 98.323 -> 114.227: But what we can do is to actually provide you assistance for your parents, your mother specifically, in terms of her medical bills and for your children, maybe putting them on the financial assistance scheme in the MOE. 
-
-SPEAKER_01 116.688 -> 118.311: financial assistance scheme. 
-
-SPEAKER_01 119.313 -> 120.735: I've been through that already. 
-
-SPEAKER_01 120.756 -> 126.065: I've contacted so many agencies and they just keep passing me around. 
-
-SPEAKER_01 127.067 -> 131.756: My mother's medical bills are piling up and my kids are eating bread every day. 
-
-SPEAKER_01 132.778 -> 134.12: I can't take this anymore. 
-
-SPEAKER_01 135.062 -> 136.104: You want me to beg? 
-
-SPEAKER_01 137.046 -> 138.308: I need real support. 
-
-SPEAKER_01 138.389 -> 139.61: Not more empty promises. 
-
-SPEAKER_00 139.63 -> 140.151: No, no, Mr Motu. 
-
-SPEAKER_00 140.231 -> 142.133: We are not expecting you to beg. 
-
-SPEAKER_00 143.073 -> 158.628: You know, we're here to help you, to provide you the kind of assistance that we can provide and as well, you know, try to understand what kind of situation that you're going through and look at ways that we can maybe mitigate those issues financially. 
-
-SPEAKER_01 162.752 -> 163.352: Mitigate? 
-
-SPEAKER_01 164.273 -> 165.855: You think I haven't tried everything? 
-
-SPEAKER_01 165.895 -> 168.177: I'm drowning in bills. 
-
-SPEAKER_01 168.443 -> 169.845: and my mother needs care. 
-
-SPEAKER_01 170.746 -> 172.148: I've been to every meeting. 
-
-SPEAKER_00 172.168 -> 179.88: Yes, Mr. Mutoh, it's important that we maintain our goal here, which is to help you and your family. 
-
-SPEAKER_00 180.52 -> 188.031: And I think that, you know, what I can do is arrange you with some financial schemes. 
-
-SPEAKER_00 189.834 -> 190.335: How about that? 
-
-SPEAKER_01 191.717 -> 192.798: Financial schemes? 
-
-SPEAKER_01 193.88 -> 194.941: I've heard that before. 
-
-SPEAKER_01 195.843 -> 196.864: They never work out. 
-
-SPEAKER_01 197.637 -> 200.205: I'm tired of waiting for help that never comes. 
-
+[1.178 -> 2.68] SPEAKER_00: Hi Mr Muthu, how are you today?
+[7.207 -> 25.633] SPEAKER_01: I'm just trying to get through the day, you know. With my mother needing constant care and my kids depending on me, it feels like I'm carrying the weight of the world. Bills are piling up and I just don't know how to manage it all. It's really overwhelming. How about you?
+[26.542 -> 35.193] SPEAKER_00: I understand that you are facing this situation with your mother and your children and rest assured we are here to help.
+[38.417 -> 59.311] SPEAKER_01: Help? I've heard that before. You sit in your air-conditioned office but you don't understand what it's like for me. My mother is bedridden and I'm struggling to keep food on the table for my kids. I've reached out to so many people and nothing changes. I need real help, not just words.
+[59.812 -> 67.844] SPEAKER_00: I understand, Mr Muthu. As for that, how about we discuss on the kind of packages that we can offer for you today?
+[70.988 -> 90.03] SPEAKER_01: Packages? What good are packages when I can barely afford to keep the lights on? I need financial assistance, not some vague offer. My mother needs her medication and my kids need food. I can't keep waiting for something that might not even help. You don't get it.
+[90.991 -> 114.227] SPEAKER_00: Well, in terms of providing you with cash or money and finance, that is not our responsibility. But what we can do is to actually provide you assistance for your parents, your mother specifically, in terms of her medical bills and for your children, maybe putting them on the financial assistance scheme in the MOE.
+[116.688 -> 139.61] SPEAKER_01: financial assistance scheme. I've been through that already. I've contacted so many agencies and they just keep passing me around. My mother's medical bills are piling up and my kids are eating bread every day. I can't take this anymore. You want me to beg? I need real support. Not more empty promises.
+[139.63 -> 158.628] SPEAKER_00: No, no, Mr Motu. We are not expecting you to beg. You know, we're here to help you, to provide you the kind of assistance that we can provide and as well, you know, try to understand what kind of situation that you're going through and look at ways that we can maybe mitigate those issues financially.
+[162.752 -> 172.148] SPEAKER_01: Mitigate? You think I haven't tried everything? I'm drowning in bills. and my mother needs care. I've been to every meeting.
+[172.168 -> 190.335] SPEAKER_00: Yes, Mr. Mutoh, it's important that we maintain our goal here, which is to help you and your family. And I think that, you know, what I can do is arrange you with some financial schemes. How about that?
+[191.717 -> 200.205] SPEAKER_01: Financial schemes? I've heard that before. They never work out. I'm tired of waiting for help that never comes.
