@@ -13,26 +13,32 @@ class OpenAIClient:
         self.prompt = prompt
 
     def generate_evidence(self, description: str, k: int = 3) -> str:
-        docs = self.transcript_store.similarity_search(description, k=k)
+        """
+        Given a description of an event, retrieve the top-k matching transcript snippets,
+        then ask the LLM to format a single evidence sentence.
+        """
+        docs = self.transcript_store.similarity_search_with_relevance_scores(description, k=k)
         if not docs:
             return f'No evidence found for “{description}.”'
+
         snippets = []
-        for d in docs:
-            start = d.metadata["start"]
-            end   = d.metadata["end"]
-            text  = d.page_content
-            snippets.append(f"[{start:.2f}→{end:.2f}] SPEAKER: {text}")
+        i = 0
+        for d, score in docs:
+            # threshold for similarity
+            if score >= 0.5:
+                snippets.append(f"{d.page_content}")
         context_block = "\n".join(snippets)
 
         messages = [
-            ChatMessage(role="system", content=self.prompt),
+            ChatMessage(role="developer", content=EVIDENCE_PROMPT),
             ChatMessage(
                 role="user",
                 content=(
                     f"Relevant transcript excerpts:\n{context_block}\n\n"
-                    f"Description to check: {description}"
+                    f"Description to check: {description}\n"
                 )
             ),
         ]
+
         resp = self.client.invoke(messages)
         return resp.content.strip()
