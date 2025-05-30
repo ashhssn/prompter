@@ -27,7 +27,7 @@ Your tasks:
 1. For each pair, determine whether the Officer line matches the description.
 2. For every matching pair, emit exactly one evidence sentence in this format:
 
-   Evidence retrieved: “[{off_speaker_id}] at {off_start} -> {off_end} said {first_text}. [{cli_speaker_id}] at {cli_start} -> {cli_end} said {second_text}.”
+   Evidence retrieved: “[{off_speaker_id}] at {off_start} -> {off_end} said '{first_text}'. [{cli_speaker_id}] at {cli_start} -> {cli_end} said '{second_text}'.”
 
 - If multiple pairs match, output one evidence sentence per match, separated by a period and a space.
 - If no Officer line matches, output exactly `NIL`.
