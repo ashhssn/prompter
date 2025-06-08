@@ -9,4 +9,3 @@ chromadb
 protobuf==3.20.*
 pysqlite3-binary
 langchain-huggingface
-langchain-chroma
