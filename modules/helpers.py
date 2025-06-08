@@ -1,63 +1,70 @@
-from langchain.schema import Document as LcDocument
 from docx import Document
+import streamlit as st
+import concurrent.futures
+import os
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+
+def _run_with_timeout(func, arg, timeout=2):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        future = executor.submit(func, arg)
+        try:
+            result = future.result(timeout=timeout)
+            return result
+        except concurrent.futures.TimeoutError:
+            print("Skipping current iter: took too long!")
+            return "NIL"
 
 def extract_table(doc_path, llm):
     doc = Document(doc_path)
-    table = doc.tables[0]
     rows = []
-    for row in table.rows[1:]:
-        desc = row.cells[0].text
-        res  = llm.generate_evidence(desc)
-        if 'NIL' not in res and len(res) > 1:
-            mark = "X"
-            evidence = res
-        else:
-            mark = ""
-            evidence = ""
-        rows.append({
-            "Description": desc,
-            "Check": mark,
-            "Evidence": evidence
-        })
+    for it, table in enumerate(doc.tables):
+        p_bar = st.progress(0, text=f"Processing table {it+1}")
+        for it2, row in enumerate(table.rows[1:]):
+            p_bar.progress((it2+1)/len(table.rows[1:]), text=f"Processing table {it+1} row {it2+1}/{len(table.rows[1:])}")
+            desc = row.cells[0].text
+            res  = _run_with_timeout(lambda x: llm.generate_evidence(x), desc, timeout=45)
+            if 'NIL' not in res and len(res) > 1:
+                mark = "X"
+                evidence = res
+            else:
+                mark = ""
+                evidence = ""
+            rows.append({
+                "Description": desc,
+                "Check": mark,
+                "Evidence": evidence
+            })
     return rows
 
-def group_as_speaker_pairs(transcript):
-    """
-    Groups transcript into speaker pairs: a turn and the reply.
-    """
-    grouped_docs = []
-    
-    def flatten_turns(first, second):
-        # get output as: [start_time -> end_time] SPEAKER_ID: text
-        first_text = f"\n[{first[0]['start']} -> {first[-1]['end']}] {first[0]['speaker_id']}: " + " ".join([f['text'] for f in first])
-        second_text = f"[{second[0]['start']} -> {second[-1]['end']}] {second[0]['speaker_id']}: " + " ".join([s['text'] for s in second])
-        # combine to process a speaker-pair document
-        text = first_text + "\n" + second_text
-        return text
+def load_chroma_db():
+    current_dir = os.path.dirname(__file__)
+    persist_directory = os.path.abspath(os.path.join(current_dir, "..", "data", "chroma_db"))
+    embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    return Chroma(persist_directory=persist_directory, embedding_function=embedding_model)
 
-    i = 0
-    while i < len(transcript):
-        # Collect all turns from one speaker
-        first_speaker = transcript[i]['speaker_id']
-        first_turn = []
-        while i < len(transcript) and transcript[i]['speaker_id'] == first_speaker:
-            first_turn.append(transcript[i])
-            i += 1
-
-        # Collect the reply (other speaker)
-        second_turn = []
-        if i < len(transcript):
-            second_speaker = transcript[i]['speaker_id']
-            while i < len(transcript) and transcript[i]['speaker_id'] == second_speaker:
-                second_turn.append(transcript[i])
-                i += 1
-
-        if first_turn and second_turn:
-            content = flatten_turns(first_turn, second_turn)
-            doc = LcDocument(
-                page_content=content
-            )
-            grouped_docs.append(doc)
-
-    return grouped_docs
-    
+def open_ended_feedback(llm, k: int = 4):
+    questions = [ # questions required in section 3 of the report
+    {
+        "question": "How did the officer handle challenging moments?",
+    },
+    {
+        "question": "Did the officer show signs of being triggered?",
+    },
+    {
+        "question": "What early warning signs (if any) did the officer miss?",
+    },
+    {
+        "question": "Were there any missed opportunities for better engagement?",
+    },
+    {
+        "question": "Any additional observations and suggestions for improvement",
+    }
+]
+    p_bar = st.progress(0)
+    for it, q in enumerate(questions):
+        p_bar.progress((it+1)/len(questions), text=f"Processing question {it+1}/{len(questions)}")
+        # Compose input for LLM using existing feedback function
+        st.write(f"***{q['question']}***")
+        feedback = llm.generate_feedback(question=q["question"], k=k)
+        st.write(feedback)
