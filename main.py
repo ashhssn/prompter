@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from modules.openai_client import OpenAIClient
 import time
@@ -5,11 +9,6 @@ import pandas as pd
 import os
 from modules.prompts import EVIDENCE_PROMPT, FEEDBACK_PROMPT
 from modules.helpers import extract_table, load_chroma_db, open_ended_feedback
-from dotenv import load_dotenv
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 api_key = st.secrets["openai_api_key"]
 hf_api_key = st.secrets["hf_api_key"]
