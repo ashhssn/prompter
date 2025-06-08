@@ -1,13 +1,33 @@
 
-[1.178 -> 2.68] SPEAKER_00: Hi Mr Muthu, how are you today?
-[7.207 -> 25.633] SPEAKER_01: I'm just trying to get through the day, you know. With my mother needing constant care and my kids depending on me, it feels like I'm carrying the weight of the world. Bills are piling up and I just don't know how to manage it all. It's really overwhelming. How about you?
-[26.542 -> 35.193] SPEAKER_00: I understand that you are facing this situation with your mother and your children and rest assured we are here to help.
-[38.417 -> 59.311] SPEAKER_01: Help? I've heard that before. You sit in your air-conditioned office but you don't understand what it's like for me. My mother is bedridden and I'm struggling to keep food on the table for my kids. I've reached out to so many people and nothing changes. I need real help, not just words.
-[59.812 -> 67.844] SPEAKER_00: I understand, Mr Muthu. As for that, how about we discuss on the kind of packages that we can offer for you today?
-[70.988 -> 90.03] SPEAKER_01: Packages? What good are packages when I can barely afford to keep the lights on? I need financial assistance, not some vague offer. My mother needs her medication and my kids need food. I can't keep waiting for something that might not even help. You don't get it.
-[90.991 -> 114.227] SPEAKER_00: Well, in terms of providing you with cash or money and finance, that is not our responsibility. But what we can do is to actually provide you assistance for your parents, your mother specifically, in terms of her medical bills and for your children, maybe putting them on the financial assistance scheme in the MOE.
-[116.688 -> 139.61] SPEAKER_01: financial assistance scheme. I've been through that already. I've contacted so many agencies and they just keep passing me around. My mother's medical bills are piling up and my kids are eating bread every day. I can't take this anymore. You want me to beg? I need real support. Not more empty promises.
-[139.63 -> 158.628] SPEAKER_00: No, no, Mr Motu. We are not expecting you to beg. You know, we're here to help you, to provide you the kind of assistance that we can provide and as well, you know, try to understand what kind of situation that you're going through and look at ways that we can maybe mitigate those issues financially.
-[162.752 -> 172.148] SPEAKER_01: Mitigate? You think I haven't tried everything? I'm drowning in bills. and my mother needs care. I've been to every meeting.
-[172.168 -> 190.335] SPEAKER_00: Yes, Mr. Mutoh, it's important that we maintain our goal here, which is to help you and your family. And I think that, you know, what I can do is arrange you with some financial schemes. How about that?
-[191.717 -> 200.205] SPEAKER_01: Financial schemes? I've heard that before. They never work out. I'm tired of waiting for help that never comes.
+[1.432 -> 2.654] SPEAKER_00: Hi Mr. Muthu, how are you today?
+[5.098 -> 16.435] SPEAKER_01: I don't have time for small talk. Things are really tough right now. My mother can't even walk and I'm struggling to keep everything together. I just need help but it feels like no one really listens.
+[18.478 -> 26.73] SPEAKER_00: Yes Mr. Muthu, I understand your situation. Let's start with a little bit more about yourself. How many children do you have and who are you living with currently?
+[29.528 -> 41.2] SPEAKER_01: I have two teenage children, 15 and 17 years old. We live together in a small three-room flat with my bedridden mother. It's overwhelming, and I feel like I'm carrying the weight of the world on my shoulders.
+[42.841 -> 47.606] SPEAKER_00: I understand that you are currently on a grant right now that gives you $900 a month?
+[51.13 -> 61.924] SPEAKER_01: Yes, that's right. But $900 isn't enough to cover everything. My mother needs care, and my kids need food. It's just not enough and I feel like I'm running out of options.
+[63.407 -> 73.162] SPEAKER_00: I understand Mr. Muthu and I agree $900 for your situation does sound too little. How about we explore more options together?
+[73.182 -> 86.502] SPEAKER_01: Options? I've heard that before. I've contacted politicians, called agencies and attended sessions. It feels like I'm just being passed around. What makes you think this time will be different?
+[88.118 -> 95.77] SPEAKER_00: Mr Muthu, rest assured we are here to help you and that's the sole reason that we are here. Let's start with your children. Are they on any financial assistance scheme?
+[100.036 -> 113.637] SPEAKER_01: I don't want to hear about your office or your reasons. You sit in an air-conditioned office while I'm here struggling to make ends meet. My children are eating bread every day and you tell me you're here to help? It doesn't feel that way.
+[116.772 -> 125.543] SPEAKER_00: I understand your frustration, Mr. Muthu, but if you're willing to discuss more on the financial assistance scheme that we can provide for your students, I think it would be very helpful.
+[128.967 -> 140.822] SPEAKER_01: I'm tired of hearing about schemes and programs. I've been through this too many times. What good is it if it doesn't actually help me right now? I can't keep waiting for something that might not even work.
+[142.304 -> 150.076] SPEAKER_00: Mr. Muthu, rest assured, if you agree to put your children on the financial assistance scheme, we can get them the help they need ASAP.
+[152.74 -> 163.857] SPEAKER_01: You really think someone will help me this time? I've been let down so many times before. What if it's just another waste of time? My kids need help now, not more empty promises.
+[164.9 -> 173.732] SPEAKER_00: Mr. Muthu, I will personally help you fill out the application form right now. You do not need to do anything except to verify your information and provide your signature.
+[176.776 -> 187.39] SPEAKER_01: Okay, I'll meet you halfway. I'll consider filling out the application, but I'm not getting my hopes up. Just make sure it's not another waste of time. I can't take that again.
+[188.431 -> 192.156] SPEAKER_00: Yes, Mr. Muthu, thank you for giving us one more chance. How about for your mother?
+[195.73 -> 203.922] SPEAKER_01: If there's any way to get help for my mother, I'm willing to listen. She needs care and I can't do it all alone. What can you do to help her?
+[205.344 -> 213.616] SPEAKER_00: Mr. Muthu, we can explore the Medicare Shield option to see if she's eligible for it, which can help pay for hospital expenses.
+[217.242 -> 228.713] SPEAKER_01: That sounds like it could be helpful. I just want to make sure she gets the care she needs. If there's a way to get help with our hospital expenses, I'm willing to look into it. But please, let's not waste time.
+[231.437 -> 239.907] SPEAKER_00: Yes, Mr. Muthu, we shouldn't waste time. We'll help you fill out the form very quickly. And as for yourself, how are you doing employment-wise?
+[244.372 -> 253.484] SPEAKER_01: I'm just feeling really overwhelmed. It's hard to keep going when it feels like I'm fighting an uphill battle every day. I just want to make sure my family is taken care of.
+[255.626 -> 257.568] SPEAKER_00: Yes, Mr. Muthu. Are you currently working?
+[261.451 -> 271.14] SPEAKER_01: No, I lost my part-time cleaning job recently. I've been trying to find something else, but it's tough. With everything going on at home, it feels impossible to keep up.
+[273.022 -> 279.568] SPEAKER_00: I understand the frustration, Mr. Muthu. How about we put you up with a job coach to help you find a job?
+[282.873 -> 292.682] SPEAKER_01: A job coach? I don't know. I've tried so many things already. What makes you think this will actually help? I'm just tired of being let down.
+[294.363 -> 307.775] SPEAKER_00: Our job coaches are really experienced in helping our clients and our previous clients to find a job. We can help you with resume building and interview skills. What do you think?
+[307.795 -> 318.056] SPEAKER_01: If you really think they can help, I'll give it one more shot. But I'm not expecting much. Please make sure it's not another dead end. My family needs this.
+[319.679 -> 323.304] SPEAKER_00: Yes, Mr. Muthu. Thank you so much for giving us one more shot to help you.
+[326.689 -> 334.661] SPEAKER_01: All right. I'll try to stay hopeful. Just remember, I'm counting on you to make this work. I can't keep going through this cycle of disappointment.
+[336.504 -> 337.486] SPEAKER_00: Okay. Thank you, Mr. Muthu.
+[340.791 -> 345.533] SPEAKER_01: Thank you for listening. I just hope this time it leads to something better for my family.
