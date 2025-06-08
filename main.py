@@ -28,7 +28,7 @@ st.write("Please note the following time that it will take to process checklist 
 
 time_dict = {
     "Model name": ["gpt-4.1-mini", "gpt-4.1", "o4-mini"],
-    "Average time taken to complete": ["~234 seconds", "~270 seconds", "~1096 seconds"]
+    "Average time taken to complete": ["130-234 seconds", "130-270 seconds", "870-1096 seconds"]
 }
 
 st.table(time_dict)
