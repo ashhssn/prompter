@@ -23,10 +23,14 @@ def extract_table(doc_path, llm):
     doc = Document(doc_path)
     rows = []
     for it, table in enumerate(doc.tables):
+        if len(table.columns) == 5:
+            desc_idx = 2
+        else:
+            desc_idx = 0
         p_bar = st.progress(0, text=f"Processing table {it+1}")
         for it2, row in enumerate(table.rows[1:]):
             p_bar.progress((it2+1)/len(table.rows[1:]), text=f"Processing table {it+1} row {it2+1}/{len(table.rows[1:])}")
-            desc = row.cells[0].text
+            desc = row.cells[desc_idx].text
             res  = _run_with_timeout(lambda x: llm.generate_evidence(x), desc, timeout=45)
             if 'NIL' not in res and len(res) > 1:
                 mark = "X"
