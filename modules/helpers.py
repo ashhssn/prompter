@@ -5,6 +5,10 @@ import os
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 def _run_with_timeout(func, arg, timeout=2):
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         future = executor.submit(func, arg)
