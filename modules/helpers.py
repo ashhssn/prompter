@@ -7,7 +7,7 @@ import streamlit as st
 import concurrent.futures
 import os
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 
 def _run_with_timeout(func, arg, timeout=2):
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
